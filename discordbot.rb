@@ -8,7 +8,7 @@ bot = Discordrb::Commands::CommandBot.new token: ENV['TOKEN'], client_id: ENV['C
 
 bot.command(:gif) do |event|
     tokens = event.message.content.split(" ")
-    keywords = "coding train"
+    keywords = "example keywords"
     if tokens.length > 1
         keywords = (tokens.slice(1, tokens.length)).join(" ")
     end
