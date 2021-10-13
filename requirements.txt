@@ -1,4 +1,0 @@
-discordrb
-dotenv
-fetch
-uri
