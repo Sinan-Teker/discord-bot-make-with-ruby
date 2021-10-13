@@ -1,1 +1,1 @@
-worker: ruby discordbot.rb
+worker: bundle exec ruby discordbot.rb
