@@ -14,15 +14,15 @@ bot.command(:gif) do |event|
     end
 
     gifhy = URI.parse("https://api.giphy.com/v1/gifs/search?api_key=#{ENV['GIFHY_API_KEY']}&q=#{keywords}&limit=8&offset=0&rating=g&lang=tr")
-    responses = Net::HTTP.get_response gifhy
-    datas = responses.body
-    jsonn = JSON.parse(datas)
-    event.respond (jsonn["data"][rand(0..7)]["url"]).to_s
-    tenor = URI.parse("https://g.tenor.com/v1/search?q=#{keywords}&key=#{ENV['TENOR_API_KEY']}&limit=8&contentfilter=high")
-    response = Net::HTTP.get_response tenor
+    response = Net::HTTP.get_response gifhy
     data = response.body
     json = JSON.parse(data)
-    event.respond (json["results"][rand(0..7)]["url"]).to_s
+    event.respond (json["data"][rand(0..7)]["url"]).to_s
+    #tenor = URI.parse("https://g.tenor.com/v1/search?q=#{keywords}&key=#{ENV['TENOR_API_KEY']}&limit=8&contentfilter=high")
+    #response = Net::HTTP.get_response tenor
+    #data = response.body
+    #json = JSON.parse(data)
+    #event.respond (json["results"][rand(0..7)]["url"]).to_s
 end
 
 bot.run
